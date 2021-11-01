@@ -12,20 +12,39 @@
       
     </head>
     <body>
-       <h1>Blog Name</h1>
-       <div class = 'posts'>
-           @foreach ($posts as $post)
+        @extends('layouts.app')
+        @section('content')
+          <h1>Blog Name</h1>
+          <p class='create'>[<a href='/posts/create'>投稿</a>]</p>
+       
+      
+          <div class = 'posts'>
+              @foreach ($posts as $post)
+           
+                 <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
+   　　                @csrf
+   　　             　 @method('DELETE')
+   　　             　 <button type="submit">削除 </button> 
+　　   　        </form>
            
            
-               <div class = 'post'>
-                    <h2 class = 'title'>{{ $post -> title}}</h2>
-                    <p>{{ $post -> body }}</p>
+                 <div class = 'post1'>
+                       <h2><a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+                       <p>{{ $post->user->name }}</p>
+                       <p>{{ $post->body }}</p>
+                      
                
                
-               </div> 
-           @endforeach
+                 </div> 
+                 
+                 //画像
+                 @if ($post->image_path)
+                     <img src="{{ $post->image_path }}">
+                 @endif
+                 
+              @endforeach
            
-              
+        @endsection   
        </div> 
           
              

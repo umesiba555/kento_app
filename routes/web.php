@@ -15,4 +15,46 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Route::get('/', 'Postcontroller@index');
+Route::get('/', 'PostController@index');//記事一覧
+
+Route::get('/posts/create', 'PostController@create')->middleware('auth');//新規投稿
+
+Route::get('/posts/{post}/edit', 'PostController@edit');//編集
+
+Route::put('/posts/{post}', 'PostController@update');
+
+Route::delete('/posts/{post}', 'PostController@delete');//削除
+
+Route::get('/posts/{post}', 'PostController@show');//記事詳細
+
+Route::post('/posts/{post}/comments', 'CommentsController@store');//コメント
+
+Route::post('/posts', 'PostController@store');//投稿
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::group(['prefix'=>'posts/{post}'],function(){
+       Route::post('like','LikeController@store')->name('likes.like');//いいね
+       Route::delete('unlike','LikeController@destroy')->name('likes.unlike');
+
+
+       Route::post('apply','ApplyController@store')->name('applies.apply');//申請
+       Route::delete('unapply','ApplyController@destroy')->name('applies.unapply');
+
+        Route::post('approved/{apply}','ApplyController@approve')->name('apply.approved');//承認
+        Route::delete('approved/{apply}','ApplyController@unapprove')->name('apply.unapproved');
+        
+    });
+});    
+
+
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
