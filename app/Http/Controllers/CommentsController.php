@@ -13,16 +13,20 @@ class CommentsController extends Controller
     
     public function store(CommentRequest $request, Post $post)
     {
+        dd($request);
         $savedata = [
-            'post_id' => $post->id,
+            'post_id' => $request['post_id'],
             'name' => $request['name'],
             'body' => $request['comment'],
         ];
        
         $comment = new Comment;
         $comment->fill($savedata)->save();
+        
+        $sentPostId = new Post;
+        $sentPostId = Post::latest()->first()->id;
  
-        return redirect('/posts/' . $post->id);
+        return redirect('/posts/' . $sentPostId);
     }
     
     

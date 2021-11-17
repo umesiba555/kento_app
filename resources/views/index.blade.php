@@ -14,10 +14,11 @@
     <body>
         @extends('layouts.app')
         @section('content')
+        <p>{{ Auth::user() }}</p>
+        
           <h1>Blog Name</h1>
           <p class='create'>[<a href='/posts/create'>投稿</a>]</p>
-       
-      
+    
           <div class = 'posts'>
               @foreach ($posts as $post)
            
@@ -32,9 +33,6 @@
                        <h2><a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                        <p>{{ $post->user->name }}</p>
                        <p>{{ $post->body }}</p>
-                      
-               
-               
                  </div> 
                  
                  //画像

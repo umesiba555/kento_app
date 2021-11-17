@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PostController@index');//記事一覧
 
-Route::get('/posts/create', 'PostController@create')->middleware('auth');//新規投稿
+Route::get('/posts/create', 'PostController@create');
+//->middleware('auth');//新規投稿
 
 Route::get('/posts/{post}/edit', 'PostController@edit');//編集
 
@@ -27,8 +28,10 @@ Route::delete('/posts/{post}', 'PostController@delete');//削除
 
 Route::get('/posts/{post}', 'PostController@show');//記事詳細
 
+Route::get('/posts/{post}/comments', 'CommentsController@store');
 Route::post('/posts/{post}/comments', 'CommentsController@store');//コメント
 
+Route::get('/posts', 'PostController@store');
 Route::post('/posts', 'PostController@store');//投稿
 
 Route::group(['middleware'=>'auth'],function(){
@@ -55,6 +58,21 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/postsent', 'PostController@postmail')->name('posts.email');
+Route::post('/postsent', 'PostController@postmail')->name('posts.email');
 
+
+//LINEの認証画面に遷移
+// Route::get('auth/line', 'Auth\LineOAuthController@redirectToProvider')->name('line.login');
+// // 認証後にリダイレクトされるURL(コールバックURL)
+// Route::get('auth/line/callback', 'Auth\LineOAuthController@handleProviderCallback');
+
+
+
+// Route::get('dashboard', 'DashboardController@index');
+
+// Route::get('login', 'Auth\AuthController@redirectToProvider')->name('login');
+// Route::get('callback', 'Auth\AuthController@handleProviderCallback');
+// Route::post('logout', 'Auth\AuthController@logout')->name('logout');
 
 

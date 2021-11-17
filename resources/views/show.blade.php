@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -26,22 +27,42 @@
           　　　 <input type="submit" style="display:none">
           　　　 <p class='delete'>[<span onclick="return deletePost(this);">削除</span>]</p>
       　　　 </form>
+      　　　 
+      　　　 　 @if ($Auth_user->is_approved)
+      　    　　<h1>＊＊この投稿は承認済み＊＊</h1>
+             @endif
        
        
        　　　<div class = 'post'>
-          　　　 <h2 class = 'titile'>{{ $Auth_user -> title }}</h2>
-          　　　 <p class = 'body' >{{ $Auth_user -> body }}</p>
+          　　 <h2 class = 'titile'>{{ $Auth_user -> title }}</h2>
+          　　 <p class = 'body' >{{ $Auth_user -> body }}<p>
           　　　 <p class = 'updated_at'>{{ $Auth_user -> updated_at }}</p>
-          　　
+               
+             @if (Session::has('new_post'))
+                     @foreach(session('new_post') as $n_p)
+                      @if($n_p->genre)
+                         <p>{{ $n_p->genre }}</p>
+                      @endif 
+                       @if($n_p->color)
+                         <p>{{ $n_p->color }}</p>
+                      @endif 
+                       @if($n_p->category)
+                         <p>{{ $n_p->category }}</p>
+                      @endif 
+                       @if($n_p->pattern)
+                         <p>{{ $n_p->pattern }}</p>
+                      @endif 
+                     @endforeach
+             @endif
+                  
           　　　 @if ($Auth_user->image_path)
                      <img src="{{ $Auth_user->image_path }}">
                @endif
       　　　 </div>
-      　　　 
-      　　　 /*いいねボタン*/
-      　　　 
-      　　　 
-      　<div>
+      　　
+      　　
+      　　　 <!--いいねボタン-->
+        <div>
            @if (Auth::id() != $Auth_user->user->id)
 
                @if (Auth::user()->is_like($Auth_user->id))
@@ -65,19 +86,15 @@
                             <button type="submit" class="btn btn-primary">いいね！</button>
                         </div>
    　                </form>
-   　               
-   　                
    　           @endif
-           
            @endif
-           
            
               <p>{{$Auth_user->like_users->count()}}</p>
          
-                  
-        </div>  
+       </div>  
         
-        //申請
+        
+        <!--申請-->
         <div>
            @if (Auth::id() != $Auth_user->user->id)
             
@@ -88,14 +105,12 @@
    　                    @csrf
    　                    @method('DELETE')
    　                    <input name="post_id" type="hidden" value="{{ $Auth_user->id}}" >
+   　                   
    　                    <div class="mt-4">
                           <button type="submit" class="btn btn-primary">「申請中．．．」</button>
                         </div>
    　                  
    　             　</form>
-   　             　 
-   　             　
-   　           
    　               
    　           @else
        　            <form class="mb-4" method="POST" action="{{route('applies.apply',['post'=> $Auth_user->id])}}">
@@ -109,7 +124,7 @@
            @endif
            
            
-           //承認ボタン
+           <!--承認ボタン-->
            @foreach($Auth_user->apply_users as $apply_user)
              
               
@@ -118,22 +133,24 @@
                    @if (!($Auth_user->is_approved))
                     <p>{{$apply_user->name}}</p>
                     
-                       <form class="mb-4" method="POST" action="{{route('apply.approved',['post'=> $Auth_user->id,'apply'=> $apply_user->id])}}">
+                       <form class="mb-4" method="POST" action="?">
                           
        　                    @csrf
        　                    <input name="post_id" type="hidden" value="{{ $Auth_user->id}}" >
        　                    
        　                    <div class="mt-4">
-                              <button type="submit" class="btn btn-primary">「承認」</button>
+                              <button type="submit" formaction="{{route('apply.approved',['post'=> $Auth_user->id,'apply'=> $apply_user->id])}}"  class="btn btn-primary">「承認」</button>
                             </div>
+                         
+                          　
        　                  
        　               </form>
        　           @endif
        　      @endif
-       　               
-     
-           @endforeach
-           
+       　@endforeach
+         
+         
+         <!--承認取り消し-->
       @if($Auth_user->is_approved)
                    <p>{{$post->name}}</p>
            　            
@@ -146,9 +163,7 @@
            　          <div class="mt-4">
                         <button type="submit" class="btn btn-primary">「承認」を取り消す</button>
                       </div>
-           
-            
-   　 @endif
+    　 @endif
 
            
                 
@@ -174,16 +189,14 @@
       　　　 
    　　　　　　　　　　　　　 <!--コメントフォーム-->
         
-      　 　 <form class="mb-4" method="POST" action="/posts/{{$post->id}}/comments">
+        <form class="mb-4" method="POST" action="/posts/{{ $post_id }}/comments">
    　           @csrf
- 
-    　　　         <input name="post_id" type="hidden" value="{{ $post->id }}" >
+            <input name="popost_id" type="hidden" value="{{ $post_id }}" >
  
    　　　          <div class="form-group">
                     <label for="subject">名前</label>
  
-　　　　　　　      <input id="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}" type="text" >
-                    
+                    <input id="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}" type="text" >
                     
                    @if ($errors->has('name'))
                        <div class="invalid-feedback">
@@ -214,7 +227,7 @@
                    <button type="submit" class="btn btn-primary">コメントする</button>
                 </div>
           
-           </form>
+        </form>
  
            
      　　  
@@ -234,4 +247,4 @@
 </html>
 
 
-           
+     
