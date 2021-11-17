@@ -19,7 +19,6 @@ class Post extends Model
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
         
     }
-    
     public function user() {
         return $this->belongsTo('App\User');
     }
@@ -36,6 +35,11 @@ class Post extends Model
     public function apply_users()
     {
         return $this->belongsToMany(User::class,'applies','post_id','user_id')->withTimestamps();
+    }
+    
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag');
     }
     
 }
