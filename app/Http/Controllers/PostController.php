@@ -24,25 +24,31 @@ class PostController extends Controller
   
     public function index(Post $post)
     {
-      return view('index')->with(['posts' => $post->getPaginate()]);
+    // $posts = DB::table('posts')->orderBy('created_at', 'desc')->get();
+     $posts = $post->orderBy('id', 'DESC')->get();
+     //dd($posts[0]);
+    
+      //return view('index')->with(['posts' => $posts->all()]);
+      return view('index', ['posts'=> $posts]);
     }
     
     public function show(Post $post)
     {
          $Auth_user = $post;
+         $select_tags = $post->tags()->get();
          $post_id = $post->id;
-         //dd($post_id);
          $apply_user_id=$post->apply_user;
          $post = $post->apply_users()->find($apply_user_id);
          //dd($apply_user_id);
          //$post_tags = $post->tags()->get();
          //dd($post_tags);
-      return view('show')->with(['post' => $post, 'Auth_user' => $Auth_user, 'post_id' => $post_id]);
+      return view('show')->with(['post' => $post, 'Auth_user' => $Auth_user, 'post_id' => $post_id, 'select_tags'=>$select_tags]);
     }
     
     public function create(Post $post, Request $request, Tag $tag)
     {
       $posts = $post->all();
+      //dd(Auth::user());
       // $apply_user = $posts[0]->apply_user;
       $all_tags = $tag->all();
       $genres = $all_tags->where('genre')->all();
@@ -54,7 +60,7 @@ class PostController extends Controller
     
     public function store(Post $post, PostRequest $request)
     {
-     // dd($request);
+      //dd($request);
       $input = $request['post'];
     
       $post->user_id=$request->user()->id;
@@ -124,7 +130,6 @@ class PostController extends Controller
     // dd($sentNumber);
     
       return redirect('/posts/'. $sentPostId)->with('new_post',$new_post);
-      
       
     }
     

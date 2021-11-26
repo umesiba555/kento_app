@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PostController@index');//記事一覧
 
-Route::get('/posts/create', 'PostController@create');
-//->middleware('auth');//新規投稿
+Route::get('/posts/create', 'PostController@create')->middleware('auth');//新規投稿
 
 Route::get('/posts/{post}/edit', 'PostController@edit');//編集
 
@@ -75,4 +74,8 @@ Route::post('/postsent', 'PostController@postmail')->name('posts.email');
 // Route::get('callback', 'Auth\AuthController@handleProviderCallback');
 // Route::post('logout', 'Auth\AuthController@logout')->name('logout');
 
+//Route::view('/', 'index')->name('index');
+Route::get('/linelogin/{provider}', 'Auth\LineLoginController@redirectToProvider')->name('linelogin');
+Route::get('/linelogin/{provider}/callback', 'Auth\LineLoginController@handleProviderCallback');
+Route::get('/logout', 'Auth\LineLoginController@logout')->name('logout');
 
