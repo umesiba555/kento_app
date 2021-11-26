@@ -13,9 +13,8 @@ class CommentsController extends Controller
     
     public function store(CommentRequest $request, Post $post)
     {
-        dd($request);
         $savedata = [
-            'post_id' => $request['post_id'],
+            'post_id' => $request['popost_id'],
             'name' => $request['name'],
             'body' => $request['comment'],
         ];

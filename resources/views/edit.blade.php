@@ -31,6 +31,8 @@
                        <h2>本文</h2>
                        <input type='text' name='post[body]' value="{{ $post->body }}">
                    </div>
+                   
+                   //改善案（tagも編集できるようにする）
             
                    <input type="submit" value="保存">
                

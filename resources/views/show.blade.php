@@ -54,6 +54,20 @@
                       @endif 
                      @endforeach
              @endif
+            
+           
+             @if ($select_tags[0]->genre)
+                <a>{{ $select_tags[0]->genre }}</a>
+             @endif
+             @if ($select_tags[2]->color)
+                <a>{{ $select_tags[2]->color }}</a>
+             @endif
+             @if ($select_tags[3])
+                <a>{{ $select_tags[3]->pattern }}</a>
+             @endif
+             @if ($select_tags[1])
+                <a>{{ $select_tags[1]->category }}</a>
+             @endif   
                   
           　　　 @if ($Auth_user->image_path)
                      <img src="{{ $Auth_user->image_path }}">

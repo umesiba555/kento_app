@@ -49,6 +49,7 @@
                 カラー
                </button>
               
+              
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                        @foreach($colors as $color)
                           <li>
