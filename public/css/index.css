@@ -1,6 +1,25 @@
 body{
-    background-color: darkseagreen;
+ background: rgb(143,188,143);
+background: linear-gradient(90deg, rgba(143,188,143,1) 25%, rgba(109,170,109,1) 53%, rgba(72,150,72,1) 91%);
     font-family: MS Serif;
+}
+
+.post_list {
+    padding: 0.5em 0em;
+    margin: 0em 0;
+    color: #232323;
+    background: #fff8e8;
+    border-left: solid 10px #ffc06e;
+}
+
+.post_list h1 {
+    margin: 0; 
+    padding: 0;
+}
+
+body h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 img{
@@ -18,8 +37,23 @@ img{
     border-radius:10px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+}
+
+.post1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.post1 p1 {
+    font-size: 15px;
+}
+
+.post1 p2 {
+    font-size: 20px;
 }
 
 .delete_button{
     margin-bottom: 20px;
+    text-align: left;
 }

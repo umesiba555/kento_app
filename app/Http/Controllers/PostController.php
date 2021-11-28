@@ -26,10 +26,148 @@ class PostController extends Controller
     {
     // $posts = DB::table('posts')->orderBy('created_at', 'desc')->get();
      $posts = $post->orderBy('id', 'DESC')->get();
-     //dd($posts[0]);
-    
-      //return view('index')->with(['posts' => $posts->all()]);
+    //   return view('index')->with(['posts' => $posts->all()]);
       return view('index', ['posts'=> $posts]);
+    }
+    
+    public function tags(Request $request)
+    {
+         $keyword = $request->input("keyword");
+         $query = Post::query();
+         $tag_posts = [];
+         
+         function tag_genre($keyword){
+               $tag_posts = Post::whereHas('tags', function ($query) use ($keyword) {
+               $query->where('genre', 'LIKE', "%{$keyword}%");
+            })->get();
+            
+            return $tag_posts;
+            //array_push($tag_posts, $tag_post);
+            //$tag_posts = $tag_post;
+         }
+         function tag_color($keyword){
+               $tag_post = Post::whereHas('tags', function ($query) use ($keyword) {
+               $query->where('color', 'LIKE', "%{$keyword}%");
+            })->get();
+            return $tag_posts;
+         }
+         function tag_pattern($keyword){
+             $tag_post=[];
+               $tag_post = Post::whereHas('tags', function ($query) use ($keyword) {
+               $query->where('pattern', 'LIKE', "%{$keyword}%");
+            })->get();
+            return $tag_posts;
+         }
+         function tag_category($keyword){
+               $tag_post = Post::whereHas('tags', function ($query) use ($keyword) {
+               $query->where('category', 'LIKE', "%{$keyword}%");
+            })->get();
+            return $tag_posts;
+         }
+         
+         switch($keyword){
+             case 'break': 
+            $tag_posts = tag_genre($keyword);
+             break;
+              case 'rock': 
+            $tag_posts = tag_genre($keyword);
+             break;
+              case 'house': 
+            $tag_posts = tag_genre($keyword);
+             break;
+              case 'pop': 
+            $tag_posts = tag_genre($keyword);
+             break;
+              case 'wacck': 
+            $tag_posts = tag_genre($keyword);
+             break;
+              case 'jazz': 
+            $tag_posts = tag_genre($keyword);
+             break;
+              case 'krump': 
+            $tag_posts = tag_genre($keyword);
+             break;
+              case 'new hip': 
+            $tag_posts = tag_genre($keyword);
+             break;
+              case 'middle hip': 
+            $tag_posts = tag_genre($keyword);
+             break;
+              case 'style hip': 
+            $tag_posts = tag_genre($keyword);
+             break;
+             case '白系':
+            $tag_posts = tag_color($keyword);
+              break;
+              case '黒系': 
+            $tag_posts = tag_color($keyword);
+             break;
+              case '青系': 
+            $tag_posts = tag_color($keyword);
+             break;
+              case '緑系': 
+            $tag_posts = tag_color($keyword);
+             break;
+              case '赤系': 
+            $tag_posts = tag_color($keyword);
+             break;
+              case '黄色系': 
+            $tag_posts = tag_color($keyword);
+             break;
+              case 'トップス': 
+            $tag_posts = tag_category($keyword);
+             break;
+              case 'ジャケット/アウター': 
+            $tag_posts = tag_category($keyword);
+             break;
+              case 'パンツ': 
+            $tag_posts = tag_category($keyword);
+             break;
+              case 'スカート': 
+            $tag_posts = tag_category($keyword);
+             break;
+              case 'ワンピース/ドレス': 
+            $tag_posts = tag_category($keyword);
+             break;
+              case 'シューズ': 
+            $tag_posts = tag_category($keyword);
+             break;
+              case 'アクセサリー': 
+            $tag_posts = tag_category($keyword);
+             break;
+              case 'ヘアアクセサリー': 
+            $tag_posts = tag_category($keyword);
+             break;
+              case 'レグウェア': 
+            $tag_posts = tag_category($keyword);
+             break;
+              case '帽子': 
+            $tag_posts = tag_category($keyword);
+             break;
+              case 'チェック': 
+            $tag_posts = tag_pattern($keyword);
+             break;
+              case '和柄': 
+            $tag_posts = tag_pattern($keyword);
+             break;
+              case 'ボーダー': 
+            $tag_posts = tag_pattern($keyword);
+             break;
+              case 'ストライプ': 
+            $tag_posts = tag_pattern($keyword);
+             break;
+              case 'ゼブラ': 
+            $tag_posts = tag_pattern($keyword);
+             break;
+              case '迷彩': 
+            $tag_posts = tag_pattern($keyword);
+             break;
+              case '無地': 
+            $tag_posts = tag_pattern($keyword);
+             break;
+         }
+         
+        return view('tags', ['tag_posts'=>$tag_posts, 'keyword'=>$keyword]);
     }
     
     public function show(Post $post)
@@ -39,9 +177,7 @@ class PostController extends Controller
          $post_id = $post->id;
          $apply_user_id=$post->apply_user;
          $post = $post->apply_users()->find($apply_user_id);
-         //dd($apply_user_id);
          //$post_tags = $post->tags()->get();
-         //dd($post_tags);
       return view('show')->with(['post' => $post, 'Auth_user' => $Auth_user, 'post_id' => $post_id, 'select_tags'=>$select_tags]);
     }
     

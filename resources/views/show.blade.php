@@ -13,70 +13,86 @@
       
     </head>
     
-    
     <body>
         @extends('layouts.app')
         @section('content')
-       　　　<h1>Blog Name</h1>
+       　<div class= "display">
+       　   <h1>Posts Details</h1>
+       　</div>
        
       　　<p class="edit">[<a href="/posts/{{ $Auth_user->id }}/edit">編集</a>]</p>
       
       　　　 <form action="/posts/{{ $Auth_user->id }}" id="form_delete" method="post">
           　　　  @csrf
           　　  　@method('delete')
-          　　　 <input type="submit" style="display:none">
-          　　　 <p class='delete'>[<span onclick="return deletePost(this);">削除</span>]</p>
+          
+          
+            @if (Auth::user()->id == $Auth_user->user_id)
+              <input type="submit" style="display:none">
+              <p class='delete'>[<span onclick="return deletePost(this);">削除</span>]</p>
+            @endif
+            
       　　　 </form>
       　　　 
       　　　 　 @if ($Auth_user->is_approved)
-      　    　　<h1>＊＊この投稿は承認済み＊＊</h1>
+      　    　　<h1 class="apply_posts">＊＊この投稿は承認済み＊＊</h1>
              @endif
        
        
        　　　<div class = 'post'>
-          　　 <h2 class = 'titile'>{{ $Auth_user -> title }}</h2>
-          　　 <p class = 'body' >{{ $Auth_user -> body }}<p>
-          　　　 <p class = 'updated_at'>{{ $Auth_user -> updated_at }}</p>
+          　　 <h1>・{{ $Auth_user -> title }}</h1>
+          　　 <p>投稿者:{{ $Auth_user->user->name }}</p>
+          　　 <p >衣装の説明：{{ $Auth_user -> body }}<p>
+          　
+          　　 <h3>＃タグ一覧</h3>
+            <div class= "tags">
                
-             @if (Session::has('new_post'))
+              @if (Session::has('new_post'))
                      @foreach(session('new_post') as $n_p)
                       @if($n_p->genre)
-                         <p>{{ $n_p->genre }}</p>
+                         <p><span>#<span>{{ $n_p->genre }}</p>
                       @endif 
                        @if($n_p->color)
-                         <p>{{ $n_p->color }}</p>
+                         <p><span>#<span>{{ $n_p->color }}</p>
                       @endif 
                        @if($n_p->category)
-                         <p>{{ $n_p->category }}</p>
+                         <p><span>#<span>{{ $n_p->category }}</p>
                       @endif 
                        @if($n_p->pattern)
-                         <p>{{ $n_p->pattern }}</p>
+                         <p><span>#<span>{{ $n_p->pattern }}</p>
                       @endif 
                      @endforeach
-             @endif
+               @endif
             
            
              @if ($select_tags[0]->genre)
-                <a>{{ $select_tags[0]->genre }}</a>
+                <p><span>#<span>{{ $select_tags[0]->genre }}</p>
              @endif
              @if ($select_tags[2]->color)
-                <a>{{ $select_tags[2]->color }}</a>
+                <p><span>#<span>{{ $select_tags[2]->color }}</p>
              @endif
              @if ($select_tags[3])
-                <a>{{ $select_tags[3]->pattern }}</a>
+                <p><span>#<span>{{ $select_tags[3]->pattern }}</p>
              @endif
              @if ($select_tags[1])
-                <a>{{ $select_tags[1]->category }}</a>
+                <p><span>#<span>{{ $select_tags[1]->category }}</p>
              @endif   
+           </div>
+            
                   
+             <p class = 'updated_at'>投稿日：{{ $Auth_user -> updated_at }}</p>
+          　
+          　
           　　　 @if ($Auth_user->image_path)
                      <img src="{{ $Auth_user->image_path }}">
                @endif
+               
+            
       　　　 </div>
       　　
       　　
       　　　 <!--いいねボタン-->
-        <div>
+        <div class="likes">
            @if (Auth::id() != $Auth_user->user->id)
 
                @if (Auth::user()->is_like($Auth_user->id))
@@ -103,13 +119,13 @@
    　           @endif
            @endif
            
-              <p>{{$Auth_user->like_users->count()}}</p>
+              <p>いいね!数[{{$Auth_user->like_users->count()}}]件</p>
          
        </div>  
         
         
         <!--申請-->
-        <div>
+        <div class="apply">
            @if (Auth::id() != $Auth_user->user->id)
             
 
@@ -145,7 +161,7 @@
                @if(Auth::id() == $Auth_user->user->id)
               
                    @if (!($Auth_user->is_approved))
-                    <p>{{$apply_user->name}}</p>
+                    <p1>{{$apply_user->name}}</p1>
                     
                        <form class="mb-4" method="POST" action="?">
                           
@@ -178,28 +194,19 @@
                         <button type="submit" class="btn btn-primary">「承認」を取り消す</button>
                       </div>
     　 @endif
-
-           
-                
-           
-            
-       　        
-         
-                  
         </div>   
         
-       
- 
- 
-               
-          
 
-      　　　 
+        <div class="comments">　 
+      　
       　　　 <p>【コメント一覧】</p>
-      　　　@foreach($Auth_user->comments as $comment) 
-      　　  　 <p>{{$comment->name }}</p>
-      　　     <p>{{$comment->body }}</p>
-          @endforeach
+                <div class="comment">
+                   @foreach($Auth_user->comments as $comment) 
+              　　  　 <p>名前:{{$comment->name }}</p>
+              　　     <p>本文:{{$comment->body }}</p>
+                   @endforeach
+          　　 　 </div>
+      　
       　　　 
    　　　　　　　　　　　　　 <!--コメントフォーム-->
         
@@ -241,8 +248,8 @@
                    <button type="submit" class="btn btn-primary">コメントする</button>
                 </div>
           
-        </form>
- 
+         </form>
+        </div>
            
      　　  
       　　　 <div class = 'back'>[<a href='/'>戻る</a>]</div>
