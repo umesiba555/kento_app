@@ -25,7 +25,7 @@ Route::put('/posts/{post}', 'PostController@update');
 
 Route::delete('/posts/{post}', 'PostController@delete');//削除
 
-Route::get('/posts/{post}', 'PostController@show');//記事詳細
+Route::get('/posts/{post}', 'PostController@show')->middleware('auth');//記事詳細
 
 Route::get('/posts/{post}/comments', 'CommentsController@store');
 Route::post('/posts/{post}/comments', 'CommentsController@store');//コメント
@@ -46,7 +46,11 @@ Route::group(['middleware'=>'auth'],function(){
         Route::delete('approved/{apply}','ApplyController@unapprove')->name('apply.unapproved');
         
     });
-});    
+
+Route::get('/post/tags/{keyword}', 'PostController@tags')->name('tags');
+
+});
+
 
 
 

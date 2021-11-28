@@ -1,0 +1,29 @@
+.creates {
+    padding: 0.5em 0em;
+    margin: 0em 0;
+    color: #232323;
+    background: #fff8e8;
+    border-left: solid 10px #ffc06e;
+}
+.creates h1 {
+    margin: 0; 
+    padding: 0;
+}
+
+.create_post {
+    width: 600px;
+    background-color: #fff;
+    margin-bottom: 30px;
+    border-radius:10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.create_post p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+

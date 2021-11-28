@@ -15,8 +15,16 @@
         @extends('layouts.app')
         @section('content')
               
+        <div class="post_list">
+             <h1>Post List</h1>
+        </div>
         
-          <h1>衣装投稿一覧</h1>
+         <form action="{{url('/post/tags/{keyword}')}}" method="GET">
+            <label for="">タグで検索</label>
+            <input type="text"  name="keyword">
+            <input type="submit" value="検索"  class="btn-primary">
+         </form>
+          
           <h2 class='create'>[<a href='/posts/create'>+投稿</a>]</h2>
     
           
@@ -25,18 +33,15 @@
                  <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
    　　                @csrf
    　　             　 @method('DELETE')
-   　　             　 <button type="submit"  class='delete_button'>削除           </button> 
+   　　            
 　　   　        </form>
                      
            
                  <div class = 'post1'>
-                       <h2><a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
-                       <p>{{ $post->user->name }}</p>
+                       <h2><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
+                       <p1>投稿者:{{ $post->user->name }}</p1>
                        
-                      
-                       
-                       <p>{{ $post->body }}</p>
-                       
+                       <p2>衣装の説明:{{ $post->body }}</p2>
                  </div> 
                  
                  
