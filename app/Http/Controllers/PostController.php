@@ -173,10 +173,12 @@ class PostController extends Controller
     public function show(Post $post)
     {
          $Auth_user = $post;
+         //dd($Auth_user);
          $select_tags = $post->tags()->get();
          $post_id = $post->id;
          $apply_user_id=$post->apply_user;
          $post = $post->apply_users()->find($apply_user_id);
+         //dd($post);
          //$post_tags = $post->tags()->get();
       return view('show')->with(['post' => $post, 'Auth_user' => $Auth_user, 'post_id' => $post_id, 'select_tags'=>$select_tags]);
     }

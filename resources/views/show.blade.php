@@ -16,11 +16,13 @@
     <body>
         @extends('layouts.app')
         @section('content')
-       　<div class= "display">
+       　
+       　<div class= "head">
        　   <h1>Posts Details</h1>
        　</div>
+   
        
-      　　<p class="edit">[<a href="/posts/{{ $Auth_user->id }}/edit">編集</a>]</p>
+      <p class="edit">[<a href="/posts/{{ $Auth_user->id }}/edit">編集</a>]</p>
       
       　　　 <form action="/posts/{{ $Auth_user->id }}" id="form_delete" method="post">
           　　　  @csrf
@@ -163,6 +165,7 @@
                    @if (!($Auth_user->is_approved))
                     <p1>{{$apply_user->name}}</p1>
                     
+                    
                        <form class="mb-4" method="POST" action="?">
                           
        　                    @csrf
@@ -181,9 +184,10 @@
          
          
          <!--承認取り消し-->
+    @if(Auth::id() == $Auth_user->user->id)
       @if($Auth_user->is_approved)
                    <p>{{$post->name}}</p>
-           　            
+           　          
            　          <form class="mb-4" method="POST" action="{{route('apply.unapproved',['post'=> $Auth_user->id,'apply'=> $apply_user->id])}}">
                               
            　          @csrf
@@ -193,13 +197,75 @@
            　          <div class="mt-4">
                         <button type="submit" class="btn btn-primary">「承認」を取り消す</button>
                       </div>
+                     </form>
     　 @endif
-        </div>   
+    @endif
+        </div> 
         
+    
+       
+      
+      <!--mail-->
+       @if($Auth_user->is_approved)
+         <form class="mb-4 postsend" method="POST" action="{{route('mail')}}"
+         enctype="multipart/form-data">
+   　           @csrf
+            @if(isset($post->email))
+              <input name="mailsend" type="hidden" value="{{$post->email}}">
+            @endif
+            @if(isset($post->name))
+              <input name="name" type="hidden" value="{{$post->name}}">
+            @endif
+            @if(isset($Auth_user->user->name))
+              <input name="create_user" type="hidden" value="{{$Auth_user->user->name}}">
+            @endif
+             @if(isset($Auth_user->user->email))
+              <input name="create_user_email" type="hidden" value="{{$Auth_user->user->email}}">
+            @endif
+            @if(isset($Auth_user->title))
+              <input name="post_title" type="hidden" value="{{$Auth_user->title}}">
+            @endif
+            @if(isset($Auth_user->body))
+              <input name="post_body" type="hidden" value="{{$Auth_user->body}}">
+            @endif
+            @if(isset($Auth_user->image_path))
+              <input name="image_path" type="hidden" value="{{$Auth_user->image_path}}">
+            @endif
+   　　　          <div class="form-group">
+                    <label for="subject">件名</label>
+ 
+                    <input id="title" name="title" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}" type="text" >
+                    
+                   @if ($errors->has('name'))
+                       <div class="invalid-feedback">
+                           {{ $errors->first('name') }}
+                       </div>
+                   @endif
+               </div>
+ 
+               <div class="form-group">
+                   <label for="body">本文</label>
+ 
+                    <textarea
+                       id="content"
+                       name="content"
+                       class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }}"
+                       rows="4"
+                       >{{ old('comment') }}
+                    </textarea>
+                    
+               </div>
+ 
+                <div class="mt-4">
+                   <button type="submit" class="btn btn-primary">送信</button>
+                </div>
+          
+         </form>
+       @endif 
 
+        
         <div class="comments">　 
-      　
-      　　　 <p>【コメント一覧】</p>
+      　　 <p>【コメント一覧】</p>
                 <div class="comment">
                    @foreach($Auth_user->comments as $comment) 
               　　  　 <p>名前:{{$comment->name }}</p>

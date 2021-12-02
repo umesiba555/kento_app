@@ -15,6 +15,10 @@
         @extends('layouts.app')
         @section('content')
         
+        <div class="head_titile">
+             <h1>Tag Post-List</h1>
+        </div>
+        
         <form action="{{url('post/tags/{keyword}')}}" method="GET">
             <label for="">タグで検索</label>
             <input type="text"  name="keyword" value="{{$keyword}}">
@@ -40,6 +44,7 @@
 
         @endforeach
         
+         <div class = 'back'>[<a href='/'>戻る</a>]</div
         
         @endsection
     </body>

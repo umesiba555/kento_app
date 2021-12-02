@@ -47,7 +47,10 @@ Route::group(['middleware'=>'auth'],function(){
         
     });
 
-Route::get('/post/tags/{keyword}', 'PostController@tags')->name('tags');
+Route::get('/post/tags/{keyword}', 'PostController@tags')->name('tags');//tags
+
+Route::get('/mail', 'MailSendController@send')->name('mail');//mail
+Route::post('/mail', 'MailSendController@send')->name('mail');//mail
 
 });
 
