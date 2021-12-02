@@ -15,7 +15,7 @@
         @extends('layouts.app')
         @section('content')
               
-        <div class="post_list">
+        <div class="head_titile">
              <h1>Post List</h1>
         </div>
         

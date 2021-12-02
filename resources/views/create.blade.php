@@ -18,7 +18,7 @@
         @extends('layouts.app')
         @section('content')
        
-          <div class="creates">
+          <div class="head_titile">
              <h1>投稿画面</h1>
           </div>  
           

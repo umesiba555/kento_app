@@ -3,18 +3,6 @@ body{
     font-family: MS Serif;
 }
 
-.display {
-    padding: 0.5em 0em;
-    margin: 0em 0;
-    color: #232323;
-    background: #fff8e8;
-    border-left: solid 10px #ffc06e;
-}
-.display h1 {
-    margin: 0; 
-    padding: 0;
-}
-
 .post{
    width: 600px;
    height: 100vh;

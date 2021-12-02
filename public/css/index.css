@@ -4,7 +4,7 @@ background: linear-gradient(90deg, rgba(143,188,143,1) 25%, rgba(109,170,109,1) 
     font-family: MS Serif;
 }
 
-.post_list {
+.head_titile {
     padding: 0.5em 0em;
     margin: 0em 0;
     color: #232323;
@@ -12,7 +12,7 @@ background: linear-gradient(90deg, rgba(143,188,143,1) 25%, rgba(109,170,109,1) 
     border-left: solid 10px #ffc06e;
 }
 
-.post_list h1 {
+.head_titile h1 {
     margin: 0; 
     padding: 0;
 }
