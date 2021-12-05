@@ -32,34 +32,34 @@ bladeをすべhtmlで作成したことで、行数が多くわかりにくく�
 
 ## デモ
 ####  ログインページ
-![alt](![スクリーンショット (49)](https://user-images.githubusercontent.com/87055309/144759867-6642c90c-0116-4439-8eb6-3a5aab1624fd.png)
+![スクリーンショット (49)](https://user-images.githubusercontent.com/87055309/144759867-6642c90c-0116-4439-8eb6-3a5aab1624fd.png)
 
 #### ログイン後の投稿一覧ページ
-![alt](![スクリーンショット (50)](https://user-images.githubusercontent.com/87055309/144759897-bd1e76fe-fe08-4996-9b4f-2137094261c7.png)
+![スクリーンショット (50)](https://user-images.githubusercontent.com/87055309/144759897-bd1e76fe-fe08-4996-9b4f-2137094261c7.png)
 
 #### 投稿ページ
-![alt](![スクリーンショット (51)](https://user-images.githubusercontent.com/87055309/144759923-4ef69b79-2924-48e3-bd7f-b02200c0e9ab.png)
+![スクリーンショット (51)](https://user-images.githubusercontent.com/87055309/144759923-4ef69b79-2924-48e3-bd7f-b02200c0e9ab.png)
 
 #### 編集画面ページ
-![alt](![スクリーンショット (56)](https://user-images.githubusercontent.com/87055309/144759934-8ccdc817-2d8a-44d4-8735-707f5084c17a.png)
+![スクリーンショット (56)](https://user-images.githubusercontent.com/87055309/144759934-8ccdc817-2d8a-44d4-8735-707f5084c17a.png)
 
 #### 投稿詳細ページ（投稿者）
-![alt](![スクリーンショット (52)](https://user-images.githubusercontent.com/87055309/144759949-e7a06e31-5393-490e-86b1-0fc57c6da641.png)
+![スクリーンショット (52)](https://user-images.githubusercontent.com/87055309/144759949-e7a06e31-5393-490e-86b1-0fc57c6da641.png)
 
-![alt](![スクリーンショット (54)](https://user-images.githubusercontent.com/87055309/144759967-5971749d-2f92-4ceb-8c56-df37597a8364.png)
+![スクリーンショット (54)](https://user-images.githubusercontent.com/87055309/144759967-5971749d-2f92-4ceb-8c56-df37597a8364.png)
 
-![alt](![スクリーンショット (55)](https://user-images.githubusercontent.com/87055309/144759971-35e6d3c7-1b6d-4849-8f83-18a1a24ecbf0.png)
+![スクリーンショット (55)](https://user-images.githubusercontent.com/87055309/144759971-35e6d3c7-1b6d-4849-8f83-18a1a24ecbf0.png)
 
 #### 投稿詳細ページ（閲覧者）
-![alt](![スクリーンショット (57)](https://user-images.githubusercontent.com/87055309/144760031-bda8ffea-004a-49d1-b6af-91dd099d8328.png)
+![スクリーンショット (57)](https://user-images.githubusercontent.com/87055309/144760031-bda8ffea-004a-49d1-b6af-91dd099d8328.png)
 
-![alt](![スクリーンショット (58)](https://user-images.githubusercontent.com/87055309/144760050-2cb3dc34-be5c-4b1d-9811-e21e0237a1a4.png)
+![スクリーンショット (58)](https://user-images.githubusercontent.com/87055309/144760050-2cb3dc34-be5c-4b1d-9811-e21e0237a1a4.png)
 
 
 #### タグ検索ページ
 ![alt](画像URL)
 #### 受信メール
-![alt](![スクリーンショット (62)](https://user-images.githubusercontent.com/87055309/144760549-4f86c24a-a314-4564-99fa-d20e9935cca6.png)
+![スクリーンショット (62)](https://user-images.githubusercontent.com/87055309/144760549-4f86c24a-a314-4564-99fa-d20e9935cca6.png)
 )
 
 
