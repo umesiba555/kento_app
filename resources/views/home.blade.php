@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+       
+
+        <title>blog</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+
+    </head>
+<body>
 @extends('layouts.app')
 
 @section('content')
@@ -21,3 +35,5 @@
     </div>
 </div>
 @endsection
+</body>
+</html>

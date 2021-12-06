@@ -1,11 +1,16 @@
 body{
-    background-color: darkseagreen;
+    /*background-color: darkseagreen;*/
+    background: rgb(143,188,187);
+    background: linear-gradient(100deg, rgba(143,188,187,1) 25%, rgba(7,21,77,1) 59%, rgba(150,72,149,1) 94%);
+    /*background-repeat: no-repeat;*/
+    height: object-fit; 
     font-family: MS Serif;
+    background-size: 100%, 100%; 
 }
 
 .post{
    width: 600px;
-   height: 100vh;
+   height: 110vh;
    background-color: #fff;
    margin-bottom: 30px;
     border-radius:10px;
@@ -34,6 +39,10 @@ body{
 
 .tags p {
     padding: 10px;
+}
+
+.apply_posts {
+    text-align: center;
 }
 
 .likes p {

@@ -6,23 +6,58 @@
 
         <title>blog</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+    
+    <style>
+        .mail{
+             width: 500px;
+             height: 500px;
+             background-color: #fff;
+             margin-bottom: 30px;
+             border-radius:10px;
+             margin-left: auto;
+             margin-right: auto;
+             text-align: center;
+        }
+        .mail img{
+            width: 450px;
+            height: 550px;
+            border-radius:10px;
+            text-align: left;
+        }
+    </style>
+    
     </head>
 <body>
-    <h1>{{$name}}様</h1>
-    <pre>
-        [件名]{{$title}}
-        [本文]{{$content}}
+    <div class='mail'>
+        <h1>{{$name}}様</h1>
+        <pre>
+            [件名]{{$title}}
+            [本文]{{$content}}
+            
+            ***衣装を円滑に交換するために、[投稿者]までご連絡ください。
+             [ {{$create_user_email}} ]<<==こちらまで***
+            
+            
+            
+            【承認された投稿】
+            [投稿者]{{$create_user}}
+            [タイトル]{{$post_title}}
+            [紹介文]{{$post_body}}
+            <img src="{{$image_path}}" alt="投稿画像">
+        </pre>
         
-        ***衣装を円滑に交換するために、[投稿者]までご連絡ください。
-         [ {{$create_user_email}} ]<<==こちらまで***
+       
+    </div>
+    
+    <script>
+        const name = {
+            data {
+             return {
+                 name: {{}}
+             }   
+            }
+        }
         
-        【承認された投稿】
-        [投稿者]{{$create_user}}
-        [タイトル]{{$post_title}}
-        [紹介文]{{$post_body}}
-        {{$image_path}}
-    </pre>
+    </script>
 </body>
 </html>
