@@ -17,6 +17,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password',
+        
     ];
 
     /**
@@ -26,6 +27,8 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+          
+          
     ];
 
     /**
@@ -33,7 +36,90 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
+    
+    public function posts() {
+        return $this->hasMany('App\Post');
+    }
+    
+    
+    public function likes()
+    {
+        return $this->belongsToMany(post::class, 'likes','user_id','post_id')->withTimestamps();
+    }
+    
+    public function is_like($postId)
+    {
+        return $this->likes()->where('post_id',$postId)->exists();
+    }
+    
+    
+    public function like($postId)
+    {
+        $exist = $this->is_like($postId);
+        
+        
+        if($exist){
+            return false;
+        }else{
+            $this->likes()->attach($postId);
+            return true;
+        }
+        
+    }
+    
+    public function unlike($postId)
+    {
+        $exist = $this->is_like($postId);
+        
+        if($exist){
+            $this->likes()->detach($postId);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public function applies()
+    {
+        return $this->belongsToMany(post::class, 'applies','user_id','post_id')->withTimestamps();
+    }
+    
+    public function is_apply($postId)
+    {
+        return $this->applies()->where('post_id',$postId)->exists();
+    }
+    
+    
+    public function apply($postId)
+    {
+        $exist = $this->is_apply($postId);
+        
+        
+        if($exist){
+            return false;
+        }else{
+            $this->applies()->attach($postId);
+            return true;
+        }
+        
+    }
+    
+    public function unapply($postId)
+    {
+        $exist = $this->is_apply($postId);
+        
+        if($exist){
+            $this->applies()->detach($postId);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+   
+    
+    
 }

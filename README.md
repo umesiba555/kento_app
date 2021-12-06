@@ -1,78 +1,65 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# アプリケーション名
+衣装交換アプリ　(SnowClothes)
+## アプリケーション概要
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+ダンサーによるダンサーのための洋服交換アプリケーションです。
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## URI
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```
 
-## Learning Laravel
+## テスト用アカウント
+google-login-account:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+password:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 利用方法
+まず、自分の既に持っているgoogle accountでログインします。その後、自分が使えそうな衣装（洋服）記事をクリックして、衣装の詳細画面へ移動します。詳細画面では「いいね！」や「コメント機能」が使えるようになっており、この衣装を実際に貸してほしくなった場合には「レンタルリクエストボタン」をクリックすることで、その記事の投稿者に一覧として表示されるようになります。投稿者側は「レンタルリクエスト」一覧の中から一人貸し出す人物を選び、「貸し出し許可ボタン」を押すことでその人物宛のメールフォームが表示されるので件名、本文を入力し送信します。レンタルリクエスト申請者は送られてきたgmailに投稿者のmailが書かれているので、そこ宛に返信することで両者のマッチングが成立します。
 
-## Laravel Sponsors
+## 目指した課題解決
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+学生ダンサーの大きな悩みの１つである。毎回の衣装代の出費を抑え、友達間でしか行われていない衣装（洋服）の貸し出しをサークル全体で行えば新しい交流が生まれ、金銭にとらわれず気兼ねなくダンスができること。
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+## 実装した機能
+コロナ禍で加入しているサークルにてGoole Accountを作成したので、Google Accountログイン機能を付けました。また、サークル内で利用するために作成したので、「LINEログイン機能」も追加しました。ログインしなくとも投稿一覧は見ることができますが、ログインすることで投稿、いいね！、コメント機能、レンタルリクエスト機能が使用可能になります。レンタルリクエストが承認され両者をアプリ外でもマッチングさせるためにメール機能も付けました。また、投稿の際、タグを選択することで利用者が自分が欲しい衣装（洋服）を見つけやすいようにしました。
 
-## Contributing
+## 実装予定の機能
+bladeをすべhtmlで作成したことで、行数が多くわかりにくくなったため、Reactでシンプルかつ、効率的に書き直します。また、gmailで行っていたリクエスト承認後のメールもLINEチャットボットで行えるようにしたいと考えています。
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## デモ
+####  ログインページ
+![スクリーンショット (49)](https://user-images.githubusercontent.com/87055309/144759867-6642c90c-0116-4439-8eb6-3a5aab1624fd.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### ログイン後の投稿一覧ページ
+![スクリーンショット (50)](https://user-images.githubusercontent.com/87055309/144759897-bd1e76fe-fe08-4996-9b4f-2137094261c7.png)
 
-## Security Vulnerabilities
+#### 投稿ページ
+![スクリーンショット (51)](https://user-images.githubusercontent.com/87055309/144759923-4ef69b79-2924-48e3-bd7f-b02200c0e9ab.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### 編集画面ページ
+![スクリーンショット (56)](https://user-images.githubusercontent.com/87055309/144759934-8ccdc817-2d8a-44d4-8735-707f5084c17a.png)
 
-## License
+#### 投稿詳細ページ（投稿者）
+![スクリーンショット (52)](https://user-images.githubusercontent.com/87055309/144759949-e7a06e31-5393-490e-86b1-0fc57c6da641.png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+![スクリーンショット (54)](https://user-images.githubusercontent.com/87055309/144759967-5971749d-2f92-4ceb-8c56-df37597a8364.png)
+
+![スクリーンショット (55)](https://user-images.githubusercontent.com/87055309/144759971-35e6d3c7-1b6d-4849-8f83-18a1a24ecbf0.png)
+
+#### 投稿詳細ページ（閲覧者）
+![スクリーンショット (57)](https://user-images.githubusercontent.com/87055309/144760031-bda8ffea-004a-49d1-b6af-91dd099d8328.png)
+
+![スクリーンショット (58)](https://user-images.githubusercontent.com/87055309/144760050-2cb3dc34-be5c-4b1d-9811-e21e0237a1a4.png)
+
+
+#### タグ検索ページ
+![alt](画像URL)
+#### 受信メール
+![スクリーンショット (62)](https://user-images.githubusercontent.com/87055309/144760549-4f86c24a-a314-4564-99fa-d20e9935cca6.png)
+)
+
+
