@@ -289,6 +289,19 @@ class PostController extends Controller
       return redirect('/');
     }
     
+    public function mypage(Post $post)
+    {
+      $user_id = post::select('user_id')->get()->all();
+      //dd($user_id);
+      $id = Auth::user()->id;
+      //dd($id);
+      $my_posts = new Post;
+        if($user_id == $id){
+          $my_posts = $my_posts->where('id', $user_id == $id)->all();
+        }
+       dd($my_posts);
+     return view('mypage');
+    }
     
     
     

@@ -54,6 +54,8 @@ Route::post('/mail', 'MailSendController@send')->name('mail');//mail
 
 });
 
+Route::get('/mypage', 'PostController@mypage')->name('mypage');//
+
 
 
 

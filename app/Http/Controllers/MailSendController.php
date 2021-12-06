@@ -7,7 +7,6 @@ use App\Mail\MailController;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\SampleNotification;
-use App\Post;
 
 
 class MailSendController extends Controller

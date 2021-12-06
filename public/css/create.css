@@ -2,17 +2,24 @@
 .create_post {
     width: 600px;
     background-color: #fff;
-    margin-bottom: 30px;
     border-radius:10px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
+    margin:10px auto 30px;
 }
 
 .create_post p {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.content {
+     width: 600px;
+    background-color: #fff;
+    border-radius:10px;
+    text-align: center;
+    margin:10px auto 30px;
+}
+
 
 
 

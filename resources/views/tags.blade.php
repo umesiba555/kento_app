@@ -15,15 +15,16 @@
         @extends('layouts.app')
         @section('content')
         
-        <div class="head_titile">
+        <div class="head_title">
              <h1>Tag Post-List</h1>
         </div>
         
-        <form action="{{url('post/tags/{keyword}')}}" method="GET">
-            <label for="">タグで検索</label>
-            <input type="text"  name="keyword" value="{{$keyword}}">
+       <form action="{{url('/post/tags/{keyword}')}}" method="GET" class="fa fa-search search-form">
+             <p><i class="material-icons">search</i></p>
+
+            <input type="search"  name="keyword" value=""　class="search-text">
             <input type="submit" value="検索"  class="btn-primary">
-        </form>
+         </form>
       
         
         @foreach($tag_posts as $tag_post)

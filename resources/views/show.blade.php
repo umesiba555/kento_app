@@ -17,7 +17,7 @@
         @extends('layouts.app')
         @section('content')
        　
-       　<div class= "head">
+       　<div class= "head_title">
        　   <h1>Posts Details</h1>
        　</div>
    
@@ -139,7 +139,7 @@
    　                    <input name="post_id" type="hidden" value="{{ $Auth_user->id}}" >
    　                   
    　                    <div class="mt-4">
-                          <button type="submit" class="btn btn-primary">「申請中．．．」</button>
+                          <button type="submit" class="btn btn-primary">「リクエスト中．．．」</button>
                         </div>
    　                  
    　             　</form>
@@ -149,7 +149,7 @@
        　                    @csrf
        　                    <input name="post_id" type="hidden" value="{{ $Auth_user->id }}" >
        　                    <div class="mt-4">
-                                <button type="submit" class="btn btn-primary">「申請」</button>
+                                <button type="submit" class="btn btn-primary">「レンタルリクエスト」</button>
                             </div>
    　                </form>
                 @endif
@@ -172,7 +172,7 @@
        　                    <input name="post_id" type="hidden" value="{{ $Auth_user->id}}" >
        　                    
        　                    <div class="mt-4">
-                              <button type="submit" formaction="{{route('apply.approved',['post'=> $Auth_user->id,'apply'=> $apply_user->id])}}"  class="btn btn-primary">「承認」</button>
+                              <button type="submit" formaction="{{route('apply.approved',['post'=> $Auth_user->id,'apply'=> $apply_user->id])}}"  class="btn btn-primary">「リクエスト承認」</button>
                             </div>
                          
                           　

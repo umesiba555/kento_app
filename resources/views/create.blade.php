@@ -18,8 +18,8 @@
         @extends('layouts.app')
         @section('content')
        
-          <div class="head_titile">
-             <h1>投稿画面</h1>
+          <div class="head_title">
+             <h1>Create Post</h1>
           </div>  
           
            <div class="create_post">
