@@ -18,6 +18,10 @@ class CreatePostsTable extends Migration
                $table->bigIncrements('id');
                $table->string('title',100); 
                $table->text('body');
+               $table->unsignedBigInteger('user_id');
+               $table->string('image_path')->nullable();
+               $table->boolean('is_approved')->default(false);
+               $table->unsignedInteger('apply_user')->nullable();
                $table->timestamps();
                $table->softDeletes();
             });
