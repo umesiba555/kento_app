@@ -18,10 +18,10 @@ class CreateTagsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name');
-            $table->string('genre');
-            $table->string('color');
-            $table->string('pattern');
-            $table->string('category');
+            $table->string('genre')->nullable();
+            $table->string('color')->nullable();
+            $table->string('pattern')->nullable();
+            $table->string('category')->nullable();
         });
     }
 

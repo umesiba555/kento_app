@@ -49,15 +49,5 @@
        
     </div>
     
-    <script>
-        const name = {
-            data {
-             return {
-                 name: {{}}
-             }   
-            }
-        }
-        
-    </script>
 </body>
 </html>
