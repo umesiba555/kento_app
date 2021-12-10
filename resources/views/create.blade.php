@@ -40,7 +40,7 @@
                       @endif 
                    </div>
                   
-                  //tag
+                 
                    <div class="btn-group colors">
                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                         カラー

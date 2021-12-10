@@ -33,7 +33,7 @@
          </form>
           
           <p1 class='create'>[<a href='/posts/create'>+投稿</a>]</p1>
-          <p1 class='create'>[<a href='/mypage'>マイページ</a>]</p1>
+          <!--<p1 class='create'>[<a href='/mypage'>マイページ</a>]</p1>-->
     
           
             @foreach ($posts as $key => $post)
