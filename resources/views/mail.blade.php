@@ -43,7 +43,7 @@
             [投稿者]{{$create_user}}
             [タイトル]{{$post_title}}
             [紹介文]{{$post_body}}
-            <img src="{{$image_path}}" alt="投稿画像">
+            <img srs="{{$image_path}}" alt="投稿画像">
             <p>{{$image_path}}</p>
         </pre>
         

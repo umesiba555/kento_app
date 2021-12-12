@@ -64,7 +64,7 @@ Route::get('/mypage', 'PostController@mypage')->name('mypage');//
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/postsent', 'PostController@postmail')->name('posts.email');
 Route::post('/postsent', 'PostController@postmail')->name('posts.email');
