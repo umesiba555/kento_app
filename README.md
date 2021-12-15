@@ -7,7 +7,7 @@
 
 ## URI
 ```
-
+https://snowclothes.herokuapp.com/
 
 ```
 
@@ -32,34 +32,43 @@ bladeをすべhtmlで作成したことで、行数が多くわかりにくく�
 
 ## デモ
 ####  ログインページ
-![スクリーンショット (49)](https://user-images.githubusercontent.com/87055309/144759867-6642c90c-0116-4439-8eb6-3a5aab1624fd.png)
+![スクリーンショット (94)](https://user-images.githubusercontent.com/87055309/146140760-52ad27f2-7c0b-4f4a-a255-8064f0bb49cc.png)
+![スクリーンショット (95)](https://user-images.githubusercontent.com/87055309/146140792-852895b7-336a-4956-89f2-4f1d17ba8dcf.png)
+
+
 
 #### ログイン後の投稿一覧ページ
-![スクリーンショット (50)](https://user-images.githubusercontent.com/87055309/144759897-bd1e76fe-fe08-4996-9b4f-2137094261c7.png)
+![スクリーンショット (85)](https://user-images.githubusercontent.com/87055309/146140835-dc74a397-8ec3-4c8d-9fe0-76a4fe85363b.png)
+
 
 #### 投稿ページ
-![スクリーンショット (51)](https://user-images.githubusercontent.com/87055309/144759923-4ef69b79-2924-48e3-bd7f-b02200c0e9ab.png)
+![スクリーンショット (88)](https://user-images.githubusercontent.com/87055309/146140876-f9d3cc88-8d6d-4b4f-9c27-1dfe3508e2b3.png)
+
 
 #### 編集画面ページ
-![スクリーンショット (56)](https://user-images.githubusercontent.com/87055309/144759934-8ccdc817-2d8a-44d4-8735-707f5084c17a.png)
+![スクリーンショット (96)](https://user-images.githubusercontent.com/87055309/146141004-2b6919f9-cf75-46ec-b814-45857ad3cbca.png)
+
 
 #### 投稿詳細ページ（投稿者）
-![スクリーンショット (52)](https://user-images.githubusercontent.com/87055309/144759949-e7a06e31-5393-490e-86b1-0fc57c6da641.png)
+![スクリーンショット (98)](https://user-images.githubusercontent.com/87055309/146141659-21c2bbbf-a62d-46b4-9d15-66547f209cee.png)
+![スクリーンショット (99)](https://user-images.githubusercontent.com/87055309/146141706-10732320-1b8e-4249-92e2-57ce20e0a436.png)
+![スクリーンショット (100)](https://user-images.githubusercontent.com/87055309/146141740-4fff458c-5ab8-4df8-b636-882c669cac79.png)
 
-![スクリーンショット (54)](https://user-images.githubusercontent.com/87055309/144759967-5971749d-2f92-4ceb-8c56-df37597a8364.png)
-
-![スクリーンショット (55)](https://user-images.githubusercontent.com/87055309/144759971-35e6d3c7-1b6d-4849-8f83-18a1a24ecbf0.png)
+### リクエスト承認後
+![スクリーンショット (101)](https://user-images.githubusercontent.com/87055309/146141833-b71494f8-2075-45d0-813d-75e79a50afa1.png)
+![スクリーンショット (102)](https://user-images.githubusercontent.com/87055309/146141859-95713294-c5e4-4455-b07f-2fe5dc819f14.png)
+![スクリーンショット (103)](https://user-images.githubusercontent.com/87055309/146141890-7f479b52-c241-4ab1-822c-59cd1794969c.png)
 
 #### 投稿詳細ページ（閲覧者）
-![スクリーンショット (57)](https://user-images.githubusercontent.com/87055309/144760031-bda8ffea-004a-49d1-b6af-91dd099d8328.png)
-
-![スクリーンショット (58)](https://user-images.githubusercontent.com/87055309/144760050-2cb3dc34-be5c-4b1d-9811-e21e0237a1a4.png)
+![スクリーンショット (104)](https://user-images.githubusercontent.com/87055309/146142242-f300ec5b-507b-4df7-8406-4e616baaa446.png)
+![スクリーンショット (106)](https://user-images.githubusercontent.com/87055309/146142253-b5b94e25-9cfd-4b0d-b1a4-262b9f55d891.png)
 
 
 #### タグ検索ページ
-![alt](画像URL)
+![スクリーンショット (108)](https://user-images.githubusercontent.com/87055309/146142635-e3ab97a4-5694-4a54-b922-cc6212a3a383.png)
+
 #### 受信メール
-![スクリーンショット (62)](https://user-images.githubusercontent.com/87055309/144760549-4f86c24a-a314-4564-99fa-d20e9935cca6.png)
-)
+![image0](https://user-images.githubusercontent.com/87055309/146142659-2b248f26-72ad-4a07-8ed6-35a2bc2806f5.png)
+
 
 
